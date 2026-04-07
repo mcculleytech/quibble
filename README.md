@@ -1,5 +1,7 @@
 # Pong Game
 
+**This was built as a test for Gemma 4 26B A4B model**
+
 A simple one-player pong game written in Python utilizing Pygame. You will play against the computer. This version includes an improved AI with reaction delays and randomized targeting.
 
 ## Requirements
