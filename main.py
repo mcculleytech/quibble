@@ -1,6 +1,10 @@
 import pygame
 import sys
 import random
+import numpy as np
+import threading
+import time
+import os
 
 # Constants
 SCREEN_WIDTH = 800
@@ -67,6 +71,12 @@ class Ball:
         pygame.draw.ellipse(screen, BALL_COLOR, self.rect)
 
 
+def play_rick_roll():
+    os.system(
+        'say "Never gonna give you up, never gonna let you down, never gonna run around and desert you!"'
+    )
+
+
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -112,6 +122,8 @@ def main():
         elif ball.rect.right >= SCREEN_WIDTH:
             player_score += 1
             ball.reset(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+            if player_score == 3:
+                threading.Thread(target=play_rick_roll, daemon=True).start()
 
         # 3. Rendering
         screen.fill(BG_COLOR)
